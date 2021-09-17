@@ -2,7 +2,7 @@ import GoogleMapReact from "google-map-react";
 import React from "react";
 import Marker from "./Marker/Marker";
 
-export default function Map() {
+export default function Map({ children }) {
   return (
     <div style={{ height: `100vh`, width: `100%` }}>
       <GoogleMapReact
@@ -16,6 +16,8 @@ export default function Map() {
           text="Crag Climbing 🧗🏾‍♂️"
           color="blue"
         />
+
+        {children}
       </GoogleMapReact>
     </div>
   );

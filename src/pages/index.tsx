@@ -7,9 +7,21 @@ import Map from "../../components/map";
 import { client } from "../client";
 
 export default function Page() {
+  const { useQuery } = client;
+  const outdoorCrags = useQuery().outdoorCrags()?.nodes;
+
   return (
     <>
-      <Map />
+      <Map>
+        {outdoorCrags.map((outdoorCrag, index) => (
+          <Card
+            key={index}
+            outdoorCrag={outdoorCrag}
+            lat={outdoorCrag.lat}
+            lng={outdoorCrag.lng}
+          />
+        ))}
+      </Map>
     </>
   );
 }
