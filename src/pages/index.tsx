@@ -21,7 +21,11 @@ export default function Page() {
     <>
       <Map>
         {outdoorCrags.map((outdoorCrag, index) => (
-          <Marker outdoorCrag={outdoorCrag} />
+          <Marker
+            lat={outdoorCrag?.lat}
+            lng={outdoorCrag?.lng}
+            outdoorCrag={outdoorCrag}
+          />
         ))}
       </Map>
     </>
