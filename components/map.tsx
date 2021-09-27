@@ -10,13 +10,6 @@ export default function Map({ children }) {
         defaultCenter={{ lat: 30.2672, lng: -97.7393 }}
         defaultZoom={10}
       >
-        <Marker
-          lat={30.2672}
-          lng={-97.7393}
-          text="Crag Climbing 🧗🏾‍♂️"
-          color="blue"
-        />
-
         {children}
       </GoogleMapReact>
     </div>
