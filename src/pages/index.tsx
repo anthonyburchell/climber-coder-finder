@@ -10,13 +10,6 @@ export default function Page() {
   const { useQuery } = client;
   const outdoorCrags = useQuery().outdoorCrags()?.nodes;
 
-  const onMapClick = (e: GoogleMapReact.ClickEventValue) => {
-    setClicked({ lat: e.lat, lng: e.lng });
-    setSelectedMarker(e);
-  };
-
-  const onMarkerClick = (event: Event) => setSelectedMarker(event);
-
   return (
     <>
       <Map>
@@ -36,11 +29,4 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     Page: Page,
     client,
   });
-}
-function setSelectedMarker(arg0: any) {
-  throw new Error("Function not implemented.");
-}
-
-function setClicked(arg0: { lat: any; lng: any }) {
-  throw new Error("Function not implemented.");
 }
