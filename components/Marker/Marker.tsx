@@ -1,17 +1,20 @@
-import React from "react";
-import "./Marker.module.scss";
+import { OutdoorCrag } from "client";
 
-const Marker = (props: any) => {
-  const { color, name, id, text } = props;
+export interface MarkerProps {
+  outdoorCrag: OutdoorCrag;
+}
+
+function Marker({ outdoorCrag }: MarkerProps) {
   return (
-    <div
-      className="marker"
-      style={{ backgroundColor: color, cursor: "pointer" }}
-      title={text}
-    >
-      {text}
+    <div className="card">
+      <div className="cragname">
+        <span>{outdoorCrag?.cragName}</span>
+        <span>{outdoorCrag?.suggestedRoutes}</span>
+        <span>{outdoorCrag?.address}</span>
+        <span>{outdoorCrag?.routePic}</span>
+      </div>
     </div>
   );
-};
+}
 
 export default Marker;
