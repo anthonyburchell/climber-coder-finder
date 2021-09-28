@@ -17,7 +17,7 @@ export default function Page() {
   const [selectedCrag, setSelectedCrag] = useState<OutdoorCrag>(undefined);
 
   const onMarkerClick = (outdoorCrag: OutdoorCrag) => {
-    setIsCardToggled(true);
+    setIsCardToggled(!isCardToggled);
     setSelectedCrag(outdoorCrag);
   };
 
