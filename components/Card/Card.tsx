@@ -1,18 +1,17 @@
+import { OutdoorCrag } from "client";
+
 export interface CardProps {
-  cragname: string;
-  suggestedroutes: string;
-  address: string;
-  routepic: string;
+  outdoorCrag: OutdoorCrag;
 }
 
-function Card({ cragname, suggestedroutes, address, routepic }: CardProps) {
+function Card({ outdoorCrag }: CardProps) {
   return (
     <div className="card">
       <div className="cragname">
-        <span>{cragname}</span>
-        <span>{suggestedroutes}</span>
-        <span>{address}</span>
-        <span>{routepic}</span>
+        <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.cragName }} />
+        <span>{outdoorCrag?.suggestedRoutes}</span>
+        <span>{outdoorCrag?.address}</span>
+        <span>{outdoorCrag?.routePic.sourceUrl}</span>
       </div>
     </div>
   );
