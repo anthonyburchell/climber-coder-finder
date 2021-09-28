@@ -7,19 +7,13 @@ export interface MarkerProps {
   outdoorCrag: OutdoorCrag;
   lat: number;
   lng: number;
+  onClick: Event;
 }
 
-function Marker({ outdoorCrag }: MarkerProps) {
-  const [isCardToggled, setIsCardToggled] = useState(false);
-  const onMarkerClick = (e: MouseEvent<HTMLDivElement>) => {
-    console.log(e);
-    setIsCardToggled(true);
-  };
-
+function Marker({ outdoorCrag, onClick }: MarkerProps) {
   return (
-    <div onClick={onMarkerClick} className={styles.marker}>
+    <div onClick={onClick} className={styles.marker}>
       🧗🏾‍♂️
-      {isCardToggled === true && <div>display card content</div>}
     </div>
   );
 }
