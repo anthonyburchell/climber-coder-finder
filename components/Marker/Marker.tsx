@@ -7,12 +7,12 @@ export interface MarkerProps {
   outdoorCrag: OutdoorCrag;
   lat: number;
   lng: number;
-  onClick: Event;
+  onClick: (MouseEvent) => void;
 }
 
 function Marker({ outdoorCrag, onClick }: MarkerProps) {
   return (
-    <div onClick={onClick} className={styles.marker}>
+    <div onClick={(e) => onClick(e)} className={styles.marker}>
       🧗🏾‍♂️
     </div>
   );

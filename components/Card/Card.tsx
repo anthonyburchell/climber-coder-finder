@@ -11,7 +11,7 @@ function Card({ outdoorCrag }: CardProps) {
         <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.cragName }} />
         <span>{outdoorCrag?.suggestedRoutes}</span>
         <span>{outdoorCrag?.address}</span>
-        <span>{outdoorCrag?.routePic}</span>
+        <span>{outdoorCrag?.routePic.sourceUrl}</span>
       </div>
     </div>
   );

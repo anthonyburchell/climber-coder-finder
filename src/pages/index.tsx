@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 import { GetStaticPropsContext } from "next";
 import React from "react";
 import Map from "../../components/map";
-import { client } from "../client";
+import { client, OutdoorCrag } from "../client";
 import Marker, { MarkerProps } from "../../components/Marker/Marker";
 import { useState } from "react";
 import { MouseEvent } from "react";
@@ -14,10 +14,11 @@ export default function Page() {
   const outdoorCrags = useQuery().outdoorCrags()?.nodes;
 
   const [isCardToggled, setIsCardToggled] = useState(false);
+  const [selectedCrag, setSelectedCrag] = useState<OutdoorCrag>(undefined);
 
-  const onMarkerClick = (e: MouseEvent<CardProps>) => {
-    console.log(e);
+  const onMarkerClick = (outdoorCrag: OutdoorCrag) => {
     setIsCardToggled(true);
+    setSelectedCrag(outdoorCrag);
   };
 
   return (
@@ -28,11 +29,11 @@ export default function Page() {
             lat={outdoorCrag?.lat}
             lng={outdoorCrag?.lng}
             outdoorCrag={outdoorCrag}
-            onClick={() => setIsCardToggled(true)}
-          >
-            <> {isCardToggled === true && <Card outdoorCrag={outdoorCrag} />}</>
-          </Marker>
+            onClick={(e) => onMarkerClick(outdoorCrag)}
+          />
         ))}
+
+        <> {isCardToggled === true && <Card outdoorCrag={selectedCrag} />}</>
       </Map>
     </>
   );
