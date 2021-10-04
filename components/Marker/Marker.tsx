@@ -13,7 +13,9 @@ export interface MarkerProps {
 function Marker({ outdoorCrag, onClick }: MarkerProps) {
   return (
     <div onClick={(e) => onClick(e)} className={styles.marker}>
-      🧗🏾‍♂️
+      <span className={styles.hovertext} data-hover="Click here for crag info">
+        🧗🏾‍♂️
+      </span>
     </div>
   );
 }
