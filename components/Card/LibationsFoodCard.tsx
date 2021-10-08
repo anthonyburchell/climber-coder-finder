@@ -1,5 +1,5 @@
 import { LibationFood } from "client";
-import LibationFoodMarker from "../Marker/LibationsFoodMarker";
+
 import styles from "./Card.module.css";
 
 export interface CardProps {
@@ -19,7 +19,8 @@ function Card({ libationFood }: CardProps) {
         />
         <span dangerouslySetInnerHTML={{ __html: libationFood?.description }} />
         <div>
-          <input>Booze Friendly={libationFood?.alcohol}</input>
+          Booze & BYOB Friendly
+          <input type="checkbox" checked={libationFood?.alcohol}></input>
         </div>
       </div>
     </div>
