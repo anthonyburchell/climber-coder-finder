@@ -1,9 +1,4 @@
-import {
-  LazyExoticComponent,
-  MouseEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { MouseEventHandler } from "react";
 import { OutdoorCrag } from "client";
 import { MouseEvent } from "react";
 import styles from "./Marker.module.css";

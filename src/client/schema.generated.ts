@@ -6621,7 +6621,9 @@ export const generatedSchema = {
     isRestricted: { __type: "Boolean" },
     isTermNode: { __type: "Boolean!" },
     lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    lat: { __type: "Float" },
     link: { __type: "String" },
+    lng: { __type: "Float" },
     modified: { __type: "String" },
     modifiedGmt: { __type: "String" },
     preview: { __type: "IndoorGymToPreviewConnectionEdge" },
@@ -6669,6 +6671,7 @@ export const generatedSchema = {
   },
   LibationFood: {
     __typename: { __type: "String!" },
+    alcohol: { __type: "Boolean" },
     conditionalTags: { __type: "ConditionalTags" },
     contentType: { __type: "ContentNodeToContentTypeConnectionEdge" },
     databaseId: { __type: "Int!" },
@@ -6693,8 +6696,10 @@ export const generatedSchema = {
     isRestricted: { __type: "Boolean" },
     isTermNode: { __type: "Boolean!" },
     lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    lat: { __type: "Float" },
     libationFoodId: { __type: "Int!" },
     link: { __type: "String" },
+    lng: { __type: "Float" },
     modified: { __type: "String" },
     modifiedGmt: { __type: "String" },
     preview: { __type: "LibationFoodToPreviewConnectionEdge" },
@@ -13981,10 +13986,12 @@ export interface IndoorGym {
    * The user that most recently edited the node
    */
   lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  lat?: Maybe<ScalarsEnums["Float"]>;
   /**
    * The permalink of the post
    */
   link?: Maybe<ScalarsEnums["String"]>;
+  lng?: Maybe<ScalarsEnums["Float"]>;
   /**
    * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
    */
@@ -14074,6 +14081,7 @@ export interface RootQueryToIndoorGymConnectionEdge {
  */
 export interface LibationFood {
   __typename?: "LibationFood";
+  alcohol?: Maybe<ScalarsEnums["Boolean"]>;
   conditionalTags?: Maybe<ConditionalTags>;
   /**
    * Connection between the ContentNode type and the ContentType type
@@ -14174,6 +14182,7 @@ export interface LibationFood {
    * The user that most recently edited the node
    */
   lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  lat?: Maybe<ScalarsEnums["Float"]>;
   /**
    * The id field matches the WP_Post-&gt;ID field.
    * @deprecated Deprecated in favor of the databaseId field
@@ -14183,6 +14192,7 @@ export interface LibationFood {
    * The permalink of the post
    */
   link?: Maybe<ScalarsEnums["String"]>;
+  lng?: Maybe<ScalarsEnums["Float"]>;
   /**
    * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
    */
