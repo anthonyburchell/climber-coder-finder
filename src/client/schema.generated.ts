@@ -7145,7 +7145,9 @@ export const generatedSchema = {
     isRestricted: { __type: "Boolean" },
     isTermNode: { __type: "Boolean!" },
     lastEditedBy: { __type: "ContentNodeToEditLastConnectionEdge" },
+    lat: { __type: "Float" },
     link: { __type: "String" },
+    lng: { __type: "Float" },
     modified: { __type: "String" },
     modifiedGmt: { __type: "String" },
     preview: { __type: "ProShopToPreviewConnectionEdge" },
@@ -15128,10 +15130,12 @@ export interface ProShop {
    * The user that most recently edited the node
    */
   lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  lat?: Maybe<ScalarsEnums["Float"]>;
   /**
    * The permalink of the post
    */
   link?: Maybe<ScalarsEnums["String"]>;
+  lng?: Maybe<ScalarsEnums["Float"]>;
   /**
    * The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time.
    */
