@@ -1,11 +1,12 @@
 .card {
-  font-size: 14px;
+  font-size: 15px;
   font-style: monospace;
-  padding: 100px;
+  padding: 10px;
   border: 5px solid #5a5a5a;
   background-color: rgb(246, 246, 246);
   border-radius: 25px;
-  width: 350px;
-  height: 150px;
+  width: 410px;
+  height: 250px;
   overflow: auto;
+  position: fixed;
 }
