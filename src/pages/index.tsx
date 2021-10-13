@@ -105,18 +105,16 @@ export default function Page() {
             onClick={(e) => onIndoorGymMarkerClick(indoorGym)}
           />
         ))}
-        <>
-          {" "}
-          {isCardToggled === true && (
-            <>
-              <CragCard outdoorCrag={selectedCrag} />
-              <ProShopCard proShop={selectedProShop} />
-              <LibationsFoodCard libationFood={selectedLibationFood} />
-              <IndoorGymCard indoorGym={selectedIndoorGym} />
-            </>
-          )}
-        </>
       </Map>
+
+      {isCardToggled === true && (
+        <>
+          <CragCard outdoorCrag={selectedCrag} />
+          <ProShopCard proShop={selectedProShop} />
+          <LibationsFoodCard libationFood={selectedLibationFood} />
+          <IndoorGymCard indoorGym={selectedIndoorGym} />
+        </>
+      )}
     </>
   );
 }
