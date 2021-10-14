@@ -1,4 +1,7 @@
 .card {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
   font-size: 14px;
   font-style: monospace;
   padding: 100px;

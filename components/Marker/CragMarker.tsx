@@ -1,7 +1,8 @@
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler } from "react";
 import { OutdoorCrag } from "client";
 import { MouseEvent } from "react";
 import styles from "./Marker.module.css";
+import googleMapReact from "google-map-react";
 
 export interface MarkerProps {
   outdoorCrag: OutdoorCrag;
@@ -10,7 +11,7 @@ export interface MarkerProps {
   onClick: MouseEventHandler<HTMLDivElement>;
 }
 
-function Marker({ outdoorCrag, onClick }: MarkerProps) {
+function CragMarker({ outdoorCrag, onClick }: MarkerProps) {
   return (
     <div onClick={onClick} className={styles.marker}>
       <span className={styles.hovertext} data-hover="Click here for crag info">
@@ -20,4 +21,4 @@ function Marker({ outdoorCrag, onClick }: MarkerProps) {
   );
 }
 
-export default Marker;
+export default CragMarker;

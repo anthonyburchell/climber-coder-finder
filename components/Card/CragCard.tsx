@@ -6,6 +6,10 @@ export interface CardProps {
 }
 
 function Card({ outdoorCrag }: CardProps) {
+  if (outdoorCrag == undefined) {
+    return null;
+  }
+
   return (
     <div className={styles.card}>
       <div className="cragname">
