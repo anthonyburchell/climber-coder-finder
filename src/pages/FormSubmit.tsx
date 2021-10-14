@@ -59,7 +59,7 @@ export default function Form() {
   return (
     <>
       <main>
-        <div>
+        <div className={styles.container}>
           <h1 className={styles.h1}>
             Submit a Crag, Food Spot, Rock Gym or Pro Shop
           </h1>
@@ -88,14 +88,14 @@ export default function Form() {
               Crag, Rock Gym, Pro Shop, Food Spot
             </label>
             <textarea
+              className={styles.textarea}
               value={topic}
-              type="texarea"
               name="topic"
               onChange={(e) => setTopic(e.target.value)}
             />
             <br></br>
             <button
-              className="button"
+              className={styles.button}
               disabled={isLoading}
               onClick={SubmitForm}
             >
