@@ -65,42 +65,52 @@ export default function Form() {
           </h1>
           <div className="message">{message}</div>
           <form className={styles.form}>
-            <label className={styles.label} htmlFor="name">
-              Name
-            </label>
-            <input
-              className={styles.input}
-              value={name}
-              type="text"
-              name="name"
-              onChange={(e) => setName(e.target.value)}
-            />
-            <label className={styles.label} htmlFor="email">
-              Email
-            </label>
-            <input
-              value={email}
-              type="text"
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label className={styles.label} htmlFor="topic">
-              Crag, Rock Gym, Pro Shop, Food Spot
-            </label>
-            <textarea
-              className={styles.textarea}
-              value={topic}
-              name="topic"
-              onChange={(e) => setTopic(e.target.value)}
-            />
-            <br></br>
-            <button
-              className={styles.button}
-              disabled={isLoading}
-              onClick={SubmitForm}
-            >
-              Submit
-            </button>
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="name">
+                Name
+              </label>
+              <input
+                className={styles.input}
+                value={name}
+                type="text"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="email">
+                Email
+              </label>
+              <input
+                value={email}
+                type="text"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label} htmlFor="topic">
+                Crag, Rock Gym, Pro Shop, Food Spot
+              </label>
+              <textarea
+                className={styles.textarea}
+                value={topic}
+                name="topic"
+                onChange={(e) => setTopic(e.target.value)}
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <button
+                className={styles.button}
+                disabled={isLoading}
+                onClick={SubmitForm}
+              >
+                Submit
+              </button>
+            </div>
           </form>
         </div>
       </main>
