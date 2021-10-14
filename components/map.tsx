@@ -1,6 +1,5 @@
 import GoogleMapReact from "google-map-react";
 import React from "react";
-import Marker from "./Marker/Marker";
 
 export default function Map({ children }) {
   return (

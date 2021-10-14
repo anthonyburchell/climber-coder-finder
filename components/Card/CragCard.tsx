@@ -1,3 +1,4 @@
+import { MediaItem } from "@faustjs/core";
 import { OutdoorCrag } from "client";
 import styles from "./Card.module.css";
 
@@ -18,7 +19,12 @@ function Card({ outdoorCrag }: CardProps) {
           dangerouslySetInnerHTML={{ __html: outdoorCrag?.suggestedRoutes }}
         />
         <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.address }} />
-        <span>{outdoorCrag?.routePic.sourceUrl}</span>
+        <span>
+          <img
+            src={outdoorCrag?.routePic.sourceUrl()}
+            alt={outdoorCrag.routePic.altText}
+          />
+        </span>
       </div>
     </div>
   );
