@@ -20,6 +20,7 @@ import LibationsFoodMarker from "../../components/Marker/LibationsFoodMarker";
 import LibationsFoodCard from "../../components/Card/LibationsFoodCard";
 import IndoorGymMarker from "../../components/Marker/IndoorGymMarker";
 import IndoorGymCard from "../../components/Card/IndoorGymCard";
+import CreateMarker from "../../components/CreateMarker/CreateMarker";
 
 export default function Page() {
   const { useQuery } = client;
@@ -115,6 +116,8 @@ export default function Page() {
           <IndoorGymCard indoorGym={selectedIndoorGym} />
         </>
       )}
+
+      <CreateMarker />
     </>
   );
 }
