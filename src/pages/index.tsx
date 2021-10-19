@@ -69,7 +69,16 @@ export default function Page() {
   };
 
   return (
-    <>
+    <div className="main-container">
+      <div className="meta-container">
+        <>
+          <CragCard outdoorCrag={selectedCrag} />
+          <ProShopCard proShop={selectedProShop} />
+          <LibationsFoodCard libationFood={selectedLibationFood} />
+          <IndoorGymCard indoorGym={selectedIndoorGym} />
+        </>
+      </div>
+      <div className="map-container">
       <Map>
         {outdoorCrags.map((outdoorCrag, index) => (
           <CragMarker
@@ -107,18 +116,8 @@ export default function Page() {
           />
         ))}
       </Map>
-
-      {isCardToggled === true && (
-        <>
-          <CragCard outdoorCrag={selectedCrag} />
-          <ProShopCard proShop={selectedProShop} />
-          <LibationsFoodCard libationFood={selectedLibationFood} />
-          <IndoorGymCard indoorGym={selectedIndoorGym} />
-        </>
-      )}
-
-      <CreateMarker />
-    </>
+      </div>
+    </div>
   );
 }
 export async function getStaticProps(context: GetStaticPropsContext) {

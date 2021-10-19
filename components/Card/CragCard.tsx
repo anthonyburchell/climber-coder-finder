@@ -14,17 +14,18 @@ function Card({ outdoorCrag }: CardProps) {
   return (
     <div className={styles.card}>
       <div className="cragname">
+      <span>
+          <img
+            className="card-hero"
+            src={outdoorCrag?.routePic.sourceUrl()}
+            alt={outdoorCrag.routePic.altText}
+          />
+        </span>
         <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.cragName }} />
         <span
           dangerouslySetInnerHTML={{ __html: outdoorCrag?.suggestedRoutes }}
         />
         <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.address }} />
-        <span>
-          <img
-            src={outdoorCrag?.routePic.sourceUrl()}
-            alt={outdoorCrag.routePic.altText}
-          />
-        </span>
       </div>
     </div>
   );

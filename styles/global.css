@@ -3,3 +3,24 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
     helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
 }
+
+.main-container {
+  display: flex;
+}
+
+.map-container {
+  flex: 2;
+}
+
+.meta-container {
+flex: 2;
+max-width: 350px;
+}
+
+.card-hero {
+  max-width: 300px;
+}
+
+.wpe-logo {
+  max-height: 30px;
+}
