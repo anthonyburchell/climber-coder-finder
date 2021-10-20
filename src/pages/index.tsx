@@ -5,119 +5,51 @@ import React from "react";
 import Map from "../../components/map";
 import {
   client,
-  IndoorGym,
-  LibationFood,
-  OutdoorCrag,
-  ProShop,
+  Office,
 } from "../client";
-import CragMarker from "../../components/Marker/CragMarker";
-import ProShopMarker from "../../components/Marker/ProShopMarker";
+import LogoMarker from "../../components/Marker/LogoMarker";
 import { useState } from "react";
 import { MouseEvent } from "react";
 import CragCard from "../../components/Card/CragCard";
-import ProShopCard from "../../components/Card/ProShopCard";
-import LibationsFoodMarker from "../../components/Marker/LibationsFoodMarker";
-import LibationsFoodCard from "../../components/Card/LibationsFoodCard";
-import IndoorGymMarker from "../../components/Marker/IndoorGymMarker";
-import IndoorGymCard from "../../components/Card/IndoorGymCard";
-import CreateMarker from "../../components/CreateMarker/CreateMarker";
 
 export default function Page() {
   const { useQuery } = client;
-  const outdoorCrags = useQuery().outdoorCrags()?.nodes;
-  const proShops = useQuery().proShops()?.nodes;
-  const libationFoods = useQuery().libationFoods()?.nodes;
-  const indoorGyms = useQuery().indoorGyms()?.nodes;
-
+  const outdoorCrags = useQuery().offices()?.nodes;
   const [isCardToggled, setIsCardToggled] = useState(false);
-  const [selectedCrag, setSelectedCrag] = useState<OutdoorCrag>(undefined);
-  const [selectedProShop, setSelectedProShop] = useState<ProShop>(undefined);
-  const [selectedLibationFood, setSelectedLibationFood] =
-    useState<LibationFood>(undefined);
-  const [selectedIndoorGym, setSelectedIndoorGym] =
-    useState<IndoorGym>(undefined);
+  const [selectedCrag, setSelectedCrag] = useState<Office>(undefined);
 
   const resetCards = () => {
     setSelectedCrag(undefined);
-    setSelectedProShop(undefined);
-    setSelectedLibationFood(undefined);
-    setSelectedIndoorGym(undefined);
   };
 
-  const onCragMarkerClick = (outdoorCrag: OutdoorCrag) => {
+  const onCragMarkerClick = (office: Office) => {
     resetCards();
     setIsCardToggled(!isCardToggled);
-    setSelectedCrag(outdoorCrag);
-  };
-
-  const onProShopMarkerClick = (proShop: ProShop) => {
-    resetCards();
-    setIsCardToggled(!isCardToggled);
-    setSelectedProShop(proShop);
-  };
-
-  const onLibationFoodMarkerClick = (libationFood: LibationFood) => {
-    resetCards();
-    setIsCardToggled(!isCardToggled);
-    setSelectedLibationFood(libationFood);
-  };
-
-  const onIndoorGymMarkerClick = (indoorGym: IndoorGym) => {
-    resetCards();
-    setIsCardToggled(!isCardToggled);
-    setSelectedIndoorGym(indoorGym);
+    setSelectedCrag(office);
   };
 
   return (
-    <div className="main-container">
-      <div className="meta-container">
-        <>
-          <CragCard outdoorCrag={selectedCrag} />
-          <ProShopCard proShop={selectedProShop} />
-          <LibationsFoodCard libationFood={selectedLibationFood} />
-          <IndoorGymCard indoorGym={selectedIndoorGym} />
-        </>
+    <>
+      <div className="main-container">
+        <div className="meta-container">
+            <h2>Office Details</h2>
+            <CragCard office={selectedCrag} />
+        </div>
+        <div className="map-container">
+        <Map>
+          {outdoorCrags.map((office, index) => (
+            <LogoMarker
+              key={index}
+              lat={office?.lat}
+              lng={office?.lng}
+              office={office}
+              onClick={(e) => onCragMarkerClick(office)}
+            />
+          ))}
+        </Map>
+        </div>
       </div>
-      <div className="map-container">
-      <Map>
-        {outdoorCrags.map((outdoorCrag, index) => (
-          <CragMarker
-            lat={outdoorCrag?.lat}
-            lng={outdoorCrag?.lng}
-            outdoorCrag={outdoorCrag}
-            onClick={(e) => onCragMarkerClick(outdoorCrag)}
-          />
-        ))}
-
-        {proShops.map((proShop, index) => (
-          <ProShopMarker
-            lat={proShop?.lat}
-            lng={proShop?.lng}
-            proShop={proShop}
-            onClick={(e) => onProShopMarkerClick(proShop)}
-          />
-        ))}
-
-        {libationFoods.map((libationFood, index) => (
-          <LibationsFoodMarker
-            lat={libationFood?.lat}
-            lng={libationFood?.lng}
-            libationFood={libationFood}
-            onClick={(e) => onLibationFoodMarkerClick(libationFood)}
-          />
-        ))}
-
-        {indoorGyms.map((indoorGym, index) => (
-          <IndoorGymMarker
-            lat={indoorGym?.lat}
-            lng={indoorGym?.lng}
-            indoorGym={indoorGym}
-            onClick={(e) => onIndoorGymMarkerClick(indoorGym)}
-          />
-        ))}
-      </Map>
-      </div>
-    </div>
+    </>
   );
 }
 export async function getStaticProps(context: GetStaticPropsContext) {

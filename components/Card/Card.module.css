@@ -6,6 +6,8 @@
   font-style: monospace;
   padding: 20px;
   background-color: rgb(246, 246, 246);
+  border-radius: 30px;
+  box-shadow: 1px 3px 10px #c4c4c4;
   /* width: 80%;
   height: 300px; */
   overflow: auto;

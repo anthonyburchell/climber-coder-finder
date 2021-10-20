@@ -1,31 +1,29 @@
 import { MediaItem } from "@faustjs/core";
-import { OutdoorCrag } from "client";
+import { Office } from "client";
 import styles from "./Card.module.css";
 
 export interface CardProps {
-  outdoorCrag: OutdoorCrag;
+  office: Office;
 }
 
-function Card({ outdoorCrag }: CardProps) {
-  if (outdoorCrag == undefined) {
+function Card({ office }: CardProps) {
+  if (office == undefined) {
     return null;
   }
 
   return (
     <div className={styles.card}>
       <div className="cragname">
-      <span>
           <img
             className="card-hero"
-            src={outdoorCrag?.routePic.sourceUrl()}
-            alt={outdoorCrag.routePic.altText}
+            src={office?.routePic.sourceUrl()}
+            alt={office.routePic.altText}
           />
-        </span>
-        <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.cragName }} />
-        <span
-          dangerouslySetInnerHTML={{ __html: outdoorCrag?.suggestedRoutes }}
+        <div className="office-name" dangerouslySetInnerHTML={{ __html: office?.cragName }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: office?.suggestedRoutes }}
         />
-        <span dangerouslySetInnerHTML={{ __html: outdoorCrag?.address }} />
+        <span dangerouslySetInnerHTML={{ __html: office?.address }} />
       </div>
     </div>
   );
