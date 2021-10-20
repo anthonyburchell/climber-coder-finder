@@ -7,7 +7,7 @@ export default function Map({ children }) {
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY }}
         defaultCenter={{ lat: 30.2672, lng: -97.7393 }}
-        defaultZoom={9}
+        defaultZoom={0}
       >
         {children}
       </GoogleMapReact>
